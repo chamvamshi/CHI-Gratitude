@@ -1,0 +1,127 @@
+<resources>
+    <string name="app_name">CHI Gratitude</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_share">share</string>
+    <string name="textview">TextView</string>
+    <string name="share">ShareFragment</string>
+    <string name="logout">logout</string>
+    <string name="information">Information</string>
+    <string name="contacts">Contacts</string>
+    <string name="shareto">share</string>
+    <string name="exit">Exit</string>
+    <string name="history_CHI"><b>AIM OF CHI(HOME)</b>\n
+    Inspired by the ideals and philosophy of Mahatma Gandhi, Child Haven International is a registered charity founded in 1985.\n
+        We assist children and women in developing countries, who are in need of food, education,
+        health care, shelter and clothing, emotional and moral support.
+    "Let    me light my lamp, says the star, and never debate if it will dispel the dark" Rabindranath Tagore\n\n
+        <b>OUR    STORY</b>\n
+    Child Haven has five homes in India, one in Nepal, one in Tibet in China and one in Bangladesh.
+        Our homes accept children who are disabled, parentless, or
+        from socially disadvantaged situations - and who are destitute, i.e. do not receive even one good meal a day.
+
+Girls and boys are treated equally, and without regard to race, caste,
+        colour, religion or culture. Living is simple and meals are vegetarian. We try not to Westernize the children,
+        but rather attempt to raise them according to the highest ideals of their own cultures.
+        We respect the heritage of each child, whether Hindu, Muslim, Jain, Sikh, Christian, Buddhist, secular or other.\n\n
+
+        <b>CREATING SELF-SUFFICIENCY</b>\n
+Destitute children from birth to six years of age are referred to us by local social welfare agencies.
+        Child Haven Homes provide full care through high school (Tenth Standard),
+        and then provide vocational training so that each child can enter the local society as a self-sufficient adult.\n\n
+
+        <b>WOMENS PROGRAMS</b>\n
+Another aspect of Child Havens Gandhian philosophy is our commitment
+        to improving the condition of women through direct employment, education, medical aid, legal aid,
+        and training opportunities.
+
+Child Haven is also involved in environmentally friendly projects,
+        family planning, literacy and soya milk production as a cottage industry for groups of women.First Ten Years
+
+CHILD HAVEN THROUGH THE YEARS
+1985
+
+Child Haven incorporated in Canada as registered charitable organization
+First six volunteers to India
+Official opening of first Home in Dhanera, Gujarat
+1986\n\n
+
+Child Haven receives All-India Registration
+Hyderabad home opens in balcony of former theatre provided rent free by State Red Cross
+Formation of Ottawa and Cornwall Support Groups
+1987\n\n
+
+Child Haven granted state license for Gujarat
+Hyderabad Home moved to rented house
+Ottawa Support Group holds first Fundraising Dinner for benefit of eighteen month old Pinky, in need of open heart surgery\n
+1988
+
+Kaliyampoondi Home opens
+Formation of Glengarry County Support Group
+Formation of SoyaCow Support Group, Ottawa
+Cornwall Support Group holds First Annual Dinner\n
+1989
+
+Dhanera Home moved to Changa, Gujarat
+First local adoption in Gujarat
+CBC sends Man Alive producer Robin Taylor and Host Peter Downie to India to film a half hour program on Child Haven\n
+1990
+
+Formation of Toronto Support Group
+Toronto Group holds first Annual Dinner
+CHATELAINE magazine publishes feature article on Child Haven
+1991\n\n
+
+Child Haven receives first grant from CIDA for Soya Milk Project
+1992
+
+Hyderabad Home moves to larger quarters
+Child Haven purchases six SoyaCow systems for Soya Milk Cottage Industry, India
+Formation of Ottawa Unitarian Support Group
+Child Haven provides start-up funds for Changa Kindergarten for Child Haven and Changa village children
+Child Haven receives third grant from CIDA for Soya Milk Project
+1993\n\n
+
+Kathmandu Home officially opened in Nepal
+Opening of Child Haven English Medium School in Kaliyampoondi
+Formation of Vancouver Support Group
+Artist Pieter Doef completes over 100 oil paintings of India and Nepal. 2/3 of selling price is donated to Child Haven
+First Vancouver Support Group
+        Dinner Opening of SoyaCow Centre in Ghaziabad Death of
+        Mr. A. K. Ramakrishna Reddiar, Gandhian mentor and village elder of Kaliyampoondi 1994\n\n
+
+First London, Ontario Support Group Dinner
+Child Haven registered as official NGO with Nepal Social Welfare Council
+Start up grant for Womens Weaving Cottage Industry, Kathmandu 2002\n\n
+
+Home in Chittagong Bangladesh opened.
+2009\n
+
+V. Kalyanam, who acted as the personal secreatry for Gandhi from 1944 until his death in 1948,
+        agreed to serve as Patron of Child Haven International and board member of Child Haven International/India
+2011\n\n
+
+Hyderabad – Completed new building, with boys Dorm, office space, Assembly/Dining Hall.\n\n
+2012\n\n\n
+
+<i>Hyderabad – First bio-gas system installed
+Hyderabad – New open air Study Hall, 34 x 20 between old and new building
+Ankur Trust Educational Home – Soya Cow system up and running
+Tibet in China – New dried yak and wood dung stove installed
+Savarsai – New boys dormitory is constructed
+Ghaziabadi – Installed the first sanitary napkin-making system. Inventor and Child Haven patron A. Muruganathan
+    2013\n\n</i>
+
+Diamond Jubilee Endowment Fund launch
+
+</string>
+    <string name="article_on_chi">Article</string>
+</resources>
