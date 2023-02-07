@@ -19,22 +19,19 @@
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:layout_below="@+id/heading">
 
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/heading"
+            android:autoLink="web"
+            android:text="@string/history_CHI" />
 
 
-    <TextView
-        android:id="@+id/paragraph"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/heading"
-        android:lineSpacingExtra="5sp"
-        android:padding="5dp"
-        android:text="@string/history_CHI" />
-
-</ScrollView>
-
+    </ScrollView>
 
 
 </RelativeLayout>

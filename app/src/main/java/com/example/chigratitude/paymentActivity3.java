@@ -38,6 +38,7 @@ import java.util.Scanner;
 
 public class paymentActivity3 extends AppCompatActivity  {
     private static Context context;
+
     EditText amount, note, name, upivirtualid;
     Button send;
     String TAG ="main";
@@ -188,6 +189,8 @@ public class paymentActivity3 extends AppCompatActivity  {
             }
         }
         return false;
+
+
 
 
 

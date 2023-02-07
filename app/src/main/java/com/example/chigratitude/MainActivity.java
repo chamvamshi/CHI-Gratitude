@@ -2,11 +2,11 @@ package com.example.chigratitude;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,9 +23,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chigratitude.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
 
+public  class MainActivity<contactlist> extends AppCompatActivity {
+
+    private ListView contactlist;
     public FloatingActionButton floatingActionButton;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
@@ -34,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -66,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         floatingActionButton = findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +83,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Override
@@ -88,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -96,6 +119,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+
+
 
 
 

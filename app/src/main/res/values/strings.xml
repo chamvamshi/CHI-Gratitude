@@ -23,7 +23,7 @@
         We assist children and women in developing countries, who are in need of food, education,
         health care, shelter and clothing, emotional and moral support.
     "Let    me light my lamp, says the star, and never debate if it will dispel the dark" Rabindranath Tagore\n\n
-        <b>OUR    STORY</b>\n
+        <b>OUR    STORY</b>\n\
     Child Haven has five homes in India, one in Nepal, one in Tibet in China and one in Bangladesh.
         Our homes accept children who are disabled, parentless, or
         from socially disadvantaged situations - and who are destitute, i.e. do not receive even one good meal a day.
@@ -120,8 +120,16 @@ Savarsai – New boys dormitory is constructed
 Ghaziabadi – Installed the first sanitary napkin-making system. Inventor and Child Haven patron A. Muruganathan
     2013\n\n</i>
 
-Diamond Jubilee Endowment Fund launch
+Diamond Jubilee Endowment Fund launch\n <b>For more details please visit our official website</b>\n
+                             www.childhaven.ca\n
+        <u>"The best way to prove the humanity is ,help others"</u>\n
+        \n
+        \n
+        \n
+
 
 </string>
     <string name="article_on_chi">Article</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
