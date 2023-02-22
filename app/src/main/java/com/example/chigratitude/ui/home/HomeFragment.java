@@ -20,9 +20,6 @@ import com.example.chigratitude.R;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-
-    private HomeViewModel2 mViewModel;
-
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -34,9 +31,5 @@ public class HomeFragment extends Fragment {
 
 
     }
-
-
-
-
 
 }

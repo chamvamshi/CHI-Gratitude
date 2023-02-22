@@ -26,25 +26,19 @@ import com.example.chigratitude.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 
 
-public  class MainActivity<contactlist> extends AppCompatActivity {
+public class MainActivity<contactlist> extends AppCompatActivity {
 
     private ListView contactlist;
     public FloatingActionButton floatingActionButton;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-
-
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,10 +46,7 @@ public  class MainActivity<contactlist> extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-
-
         });
-
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -70,9 +61,6 @@ public  class MainActivity<contactlist> extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
-
-
-
         floatingActionButton = findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,53 +69,28 @@ public  class MainActivity<contactlist> extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
+        binding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.nav_contacts) {
+                    startActivity(new Intent(MainActivity.this, contactActivity.class));
+                }
+                return false;
+            }
+        });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-
         return super.onCreateOptionsMenu(menu);
-
-
     }
-
-
-
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-
-
     }
-
-
-
-
-
-
-
-
-
 
     public void exitbutton(MenuItem item) {
         exit();
@@ -138,7 +101,6 @@ public  class MainActivity<contactlist> extends AppCompatActivity {
 
     }
 
-
     public void share(MenuItem item) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
@@ -147,7 +109,4 @@ public  class MainActivity<contactlist> extends AppCompatActivity {
         startActivity(intent.createChooser(intent, "share via"));
 
     }
-
-
 }
-
