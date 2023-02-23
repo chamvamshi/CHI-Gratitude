@@ -37,16 +37,11 @@ public class MainActivity<contactlist> extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -61,7 +56,6 @@ public class MainActivity<contactlist> extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
-        floatingActionButton = findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +92,6 @@ public class MainActivity<contactlist> extends AppCompatActivity {
 
     private void exit() {
         exit();
-
     }
 
     public void share(MenuItem item) {
@@ -106,7 +99,6 @@ public class MainActivity<contactlist> extends AppCompatActivity {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, "hello");
         intent.putExtra(Intent.EXTRA_TEXT, "click the link");
-        startActivity(intent.createChooser(intent, "share via"));
-
+        startActivity(Intent.createChooser(intent, "share via"));
     }
 }

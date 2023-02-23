@@ -19,28 +19,18 @@ public class splashActivity2 extends AppCompatActivity {
 
             public void run() {
                 try {
-                    sleep(3000);
-
-                }
-                catch (Exception e){
-
+                    sleep(1000);
+                } catch (Exception e) {
                     e.printStackTrace();
-            }
-                finally {
-                    Intent intent = new Intent(splashActivity2.this , MainActivity.class);
+                } finally {
+                    Intent intent = new Intent(splashActivity2.this, MainActivity2.class);
                     startActivity(intent);
                     finish();
-
                 }
-                }
+            }
 
 
-
-        };thread.start();
-
-
-
-
-
+        };
+        thread.start();
     }
 }
