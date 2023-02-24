@@ -23,8 +23,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="25dp"
-                android:textColor="@color/red"
-                android:text="Never forget the hands those raised you" />
+                android:text="Never forget the hands those raised you"
+                android:textColor="@color/red" />
         </LinearLayout>
     </LinearLayout>
 
@@ -32,14 +32,13 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/white"
+        android:layout_gravity="start"
         android:orientation="vertical">
-
-
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_splashs"/>
+            android:src="@drawable/ic_splashs" />
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/sidebar_navigation"

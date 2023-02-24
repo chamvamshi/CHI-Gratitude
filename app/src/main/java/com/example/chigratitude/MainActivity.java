@@ -91,7 +91,6 @@ public class MainActivity<contactlist> extends AppCompatActivity {
 
     private void exit() {
         exit();
-
     }
 
     public void share(MenuItem item) {
@@ -100,6 +99,5 @@ public class MainActivity<contactlist> extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_SUBJECT, "hello");
         intent.putExtra(Intent.EXTRA_TEXT, "click the link");
         startActivity(intent.createChooser(intent, "share via"));
-
     }
 }
