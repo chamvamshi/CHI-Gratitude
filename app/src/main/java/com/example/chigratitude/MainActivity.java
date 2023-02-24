@@ -37,11 +37,9 @@ public class MainActivity<contactlist> extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMain.toolbar);
-
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
@@ -54,6 +52,7 @@ public class MainActivity<contactlist> extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
 
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +91,7 @@ public class MainActivity<contactlist> extends AppCompatActivity {
 
     private void exit() {
         exit();
+
     }
 
     public void share(MenuItem item) {
@@ -99,6 +99,7 @@ public class MainActivity<contactlist> extends AppCompatActivity {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_SUBJECT, "hello");
         intent.putExtra(Intent.EXTRA_TEXT, "click the link");
-        startActivity(Intent.createChooser(intent, "share via"));
+        startActivity(intent.createChooser(intent, "share via"));
+
     }
 }

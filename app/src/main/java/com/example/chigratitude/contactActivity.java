@@ -10,20 +10,19 @@ import java.util.ArrayList;
 
 public class contactActivity extends AppCompatActivity {
 
-    private ListView contactlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_contacts);
+        final ListView list = findViewById(R.id.list);
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Email");
+        arrayList.add("Phone number");
 
-        contactlist = findViewById(R.id.contactlist);
-        ArrayList<String> contacts = new ArrayList<>();
-        contacts.add("vamshi");
-        contacts.add("tanish");
-        ArrayAdapter<String> contactsAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, contacts);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
+        list.setAdapter(arrayAdapter);
 
-        contactlist.setAdapter(contactsAdapter);
 
     }
 }
