@@ -2,6 +2,8 @@ package com.example.chigratitude;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,12 +27,22 @@ public class contactActivity extends AppCompatActivity {
         emailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto","kasaramvamshi7143@gmail.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Body");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
 
             }
         });
         phoneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String mobileNumber = "9553248717";
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_DIAL); // Action for what intent called for
+                intent.setData(Uri.parse("tel: " + mobileNumber)); // Data with intent respective action on intent
+                startActivity(intent);
 
             }
         });

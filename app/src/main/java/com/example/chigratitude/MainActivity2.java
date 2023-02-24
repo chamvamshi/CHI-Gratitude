@@ -7,8 +7,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Looper;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -18,6 +16,7 @@ public class MainActivity2 extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     DrawerLayout drawerLayout;
     NavigationView siderBarNav;
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +38,27 @@ public class MainActivity2 extends AppCompatActivity {
                     startActivity(startContactIntent);
                     return true;
                 }
+                if (item.getItemId() == R.id.nav_share) {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "hello");
+                    intent.putExtra(Intent.EXTRA_TEXT, "click the link");
+                    startActivity(intent.createChooser(intent, "share via"));
+                    return true;
+                }
+                if (item.getItemId() == R.id.nav_home) {
+
+                    mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+                    mDrawerLayout.closeDrawers();
+                    return true;
+
+                }
+                if (item.getItemId() == R.id.nav_info) {
+                    Intent startInfoIntent = new Intent(MainActivity2.this,InfoActivity.class);
+                    startActivity(startInfoIntent);
+                    return true;
+                }
+
                 return false;
             }
         });
@@ -62,13 +82,7 @@ public class MainActivity2 extends AppCompatActivity {
         return true;
     }
 
-    public void share(MenuItem item) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "hello");
-        intent.putExtra(Intent.EXTRA_TEXT, "click the link");
-        startActivity(intent.createChooser(intent, "share via"));
-    }
+
 
 
 }
