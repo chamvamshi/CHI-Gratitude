@@ -44,6 +44,8 @@
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/drawable/ic_chi.xml" value="0.1315" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/drawable/ic_donate_pic.xml" value="0.1315" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/drawable/ic_splash.xml" value="0.1315" />
+        <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/drawable/side_nav_bar.xml" value="0.122" />
+        <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/drawable/slide_item_container.xml" value="0.17" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/layout/activity_contact.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/layout/activity_info.xml" value="0.24036054081121683" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
@@ -57,6 +59,7 @@
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/layout/fragment_information.xml" value="0.23645320197044334" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/layout/fragment_logout.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/layout/nav_header_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/layout/slide_item_container.xml" value="0.25" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/AndroidStudioProjects/CHIGratitude/app/src/main/res/mipmap-anydpi-v26/ic_spalsh.xml" value="0.1315" />
