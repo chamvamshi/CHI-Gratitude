@@ -17,7 +17,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +35,21 @@ public class MainActivity2 extends AppCompatActivity {
     private ViewPager2 viewPager2;
     private Handler sliderhandler=new Handler();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent paymentIntent = new Intent(MainActivity2.this,paymentActivity3.class);
+                startActivity(paymentIntent);
+            }
+        });
 
         drawerLayout = findViewById(R.id.drawer_layout);
         siderBarNav = findViewById(R.id.sidebar_navigation);
@@ -78,14 +93,20 @@ public class MainActivity2 extends AppCompatActivity {
         viewPager2 = findViewById(R.id.viewPagerImageSlider);
         List<Slideritem> slideritems = new ArrayList<>();
         slideritems.add(new Slideritem(R.drawable.grace1));
-        slideritems.add(new Slideritem(R.drawable.grace1));
-        slideritems.add(new Slideritem(R.drawable.grace1));
-        slideritems.add(new Slideritem(R.drawable.grace1));
-        slideritems.add(new Slideritem(R.drawable.grace1));
-        slideritems.add(new Slideritem(R.drawable.grace1));
-        slideritems.add(new Slideritem(R.drawable.grace1));
-        slideritems.add(new Slideritem(R.drawable.grace1));
-        slideritems.add(new Slideritem(R.drawable.grace1));
+        slideritems.add(new Slideritem(R.drawable.grace3));
+        slideritems.add(new Slideritem(R.drawable.grace10));
+        slideritems.add(new Slideritem(R.drawable.grace17));
+        slideritems.add(new Slideritem(R.drawable.grace6));
+        slideritems.add(new Slideritem(R.drawable.grace7));
+        slideritems.add(new Slideritem(R.drawable.grace11));
+        slideritems.add(new Slideritem(R.drawable.grace12));
+        slideritems.add(new Slideritem(R.drawable.grace4));
+        slideritems.add(new Slideritem(R.drawable.grace15));
+        slideritems.add(new Slideritem(R.drawable.grace8));
+        slideritems.add(new Slideritem(R.drawable.grace9));
+        slideritems.add(new Slideritem(R.drawable.grace2));
+        slideritems.add(new Slideritem(R.drawable.grace13));
+        slideritems.add(new Slideritem(R.drawable.grace14));
 
         viewPager2.setAdapter(new SliderAdapter(slideritems,viewPager2));
 
@@ -110,9 +131,12 @@ public class MainActivity2 extends AppCompatActivity {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 sliderhandler.removeCallbacks(sliderRunnable);
-                sliderhandler.postDelayed(sliderRunnable,1000);
+                sliderhandler.postDelayed(sliderRunnable,2000);
             }
         });
+
+
+
     }
     private  Runnable sliderRunnable = new Runnable() {
         @Override
@@ -139,6 +163,7 @@ public class MainActivity2 extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
 
 
 
