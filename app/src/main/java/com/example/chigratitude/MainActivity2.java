@@ -141,7 +141,6 @@ public class MainActivity2 extends AppCompatActivity {
     private  Runnable sliderRunnable = new Runnable() {
         @Override
         public void run() {
-
             viewPager2.setCurrentItem(viewPager2.getCurrentItem()+1);
         }
     };
