@@ -3,10 +3,13 @@ package com.example.chigratitude;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,12 +26,13 @@ public class SignUpActivity extends AppCompatActivity {
     private Button signupbtn;
     private FirebaseDatabase db;
     private DatabaseReference ref;
+    private TextView login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
+        login = findViewById(R.id.signin);
         nameEt = findViewById(R.id.name);
         emailEt = findViewById(R.id.email);
         passwordEt = findViewById(R.id.password);
@@ -63,6 +67,8 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(SignUpActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            Intent signupIntent  = new Intent(SignUpActivity.this ,MainActivity2.class);
+                            startActivity(signupIntent);
                         } else {
                             Toast.makeText(SignUpActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
@@ -71,6 +77,12 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-
+    login.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent openActivity = new Intent(SignUpActivity.this,SignInActivity.class);
+            startActivity(openActivity);
+        }
+    });
     }
 }

@@ -16,6 +16,7 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -34,12 +35,15 @@ public class MainActivity2 extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ViewPager2 viewPager2;
     private Handler sliderhandler=new Handler();
+    private TextView login;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -137,6 +141,9 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
+
+
+
     }
     private  Runnable sliderRunnable = new Runnable() {
         @Override
@@ -162,6 +169,9 @@ public class MainActivity2 extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+
+
 
 
 
