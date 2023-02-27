@@ -32,7 +32,7 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        nameEt = findViewById(R.id.name);
+        nameEt = findViewById(R.id.edit_text_username);
         signinbtn = findViewById(R.id.signInbtn);
 
         signinbtn.setOnClickListener(new View.OnClickListener() {
@@ -61,11 +61,16 @@ public class SignInActivity extends AppCompatActivity {
 
                           Intent openMainActivity = new Intent(SignInActivity.this,MainActivity2.class);
                           startActivity(openMainActivity);
+                          finish();
                         }else{
                             Toast.makeText(getApplicationContext(),"user doesn't exist",Toast.LENGTH_SHORT).show();
+
                         }
+
                     }
-                }).addOnFailureListener(new OnFailureListener() {
+
+                })
+                .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                     Toast.makeText(getApplicationContext(),"failed",Toast.LENGTH_SHORT).show();

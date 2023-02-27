@@ -69,20 +69,24 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
                             Intent signupIntent  = new Intent(SignUpActivity.this ,MainActivity2.class);
                             startActivity(signupIntent);
+                            finish();
                         } else {
                             Toast.makeText(SignUpActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                         }
+                        finish();
                     }
                 });
             }
         });
 
-    login.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent openActivity = new Intent(SignUpActivity.this,SignInActivity.class);
-            startActivity(openActivity);
-        }
-    });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openActivity = new Intent(SignUpActivity.this,SignInActivity.class);
+                startActivity(openActivity);
+            }
+        });
+
+
     }
 }

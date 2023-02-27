@@ -1,4 +1,4 @@
-package com.example.chigratitude.ui.home;
+package com.example.chigratitude;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.chigratitude.R;
+import com.example.chigratitude.ui.home.LogoutViewModel;
 
 public class Logout extends Fragment {
 

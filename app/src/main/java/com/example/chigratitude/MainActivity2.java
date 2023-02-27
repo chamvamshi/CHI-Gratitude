@@ -2,6 +2,7 @@ package com.example.chigratitude;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,18 +11,25 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,6 +44,7 @@ public class MainActivity2 extends AppCompatActivity {
     private ViewPager2 viewPager2;
     private Handler sliderhandler=new Handler();
     private TextView login;
+
 
 
     @Override
@@ -90,6 +99,31 @@ public class MainActivity2 extends AppCompatActivity {
                     startActivity(startInfoIntent);
                     return true;
                 }
+                if (item.getItemId() == R.id.nav_logout){
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+                    builder.setMessage("Do you want to exit ?");
+                    builder.setTitle("ARE YOU SURE");
+                    builder.setIcon(R.drawable.ic_baseline_mood_bad_24);
+
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // When the user click yes button then app will close
+                        finish();
+                    });
+                    builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                        // If user click no then dialog box is canceled.
+                        dialog.cancel();
+                    });
+                    // Create the Alert dialog
+                    AlertDialog alertDialog = builder.create();
+                    // Show the Alert Dialog box
+                    alertDialog.show();
+
+                    FirebaseAuth.getInstance().signOut();
+
+                    }
+
 
                 return false;
             }
