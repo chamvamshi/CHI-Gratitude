@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignInActivity extends AppCompatActivity {
     private FirebaseDatabase db;
     private DatabaseReference ref;
-    private View nameEt;
+    private EditText nameEt;
     private Button signinbtn;
     private EditText readData;
 
@@ -38,7 +38,7 @@ public class SignInActivity extends AppCompatActivity {
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               String username = nameEt.toString();
+               String username = nameEt.getText().toString();
                 if (username.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "please enter the name",Toast.LENGTH_SHORT).show();
                 } else {
