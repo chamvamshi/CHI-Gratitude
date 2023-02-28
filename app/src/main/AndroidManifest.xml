@@ -24,12 +24,14 @@
             android:exported="false" />
         <activity
             android:name=".InfoActivity"
+            android:label="@string/information"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
             android:name=".contactActivity"
+            android:label="@string/contacts"
             android:exported="false" />
         <activity
             android:name=".officialActivity"

@@ -121,7 +121,7 @@ public class MainActivity2 extends AppCompatActivity {
                     alertDialog.show();
 
                     FirebaseAuth.getInstance().signOut();
-
+                     return true;
                     }
 
 
