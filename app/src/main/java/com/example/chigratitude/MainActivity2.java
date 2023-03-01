@@ -49,11 +49,11 @@ public class MainActivity2 extends AppCompatActivity {
     NavigationView siderBarNav;
     private DrawerLayout mDrawerLayout;
     private ViewPager2 viewPager2;
-    private Handler sliderhandler=new Handler();
+    private Handler sliderhandler = new Handler();
     private TextView login;
 
 
-  private static final String CHANNEL_ID = "My Channel";
+    private static final String CHANNEL_ID = "My Channel";
     private static final int NOTIFICATION_ID = 100;
 
     @Override
@@ -62,13 +62,11 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
-
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent paymentIntent = new Intent(MainActivity2.this,paymentActivity3.class);
+                Intent paymentIntent = new Intent(MainActivity2.this, paymentActivity3.class);
                 startActivity(paymentIntent);
             }
         });
@@ -104,11 +102,11 @@ public class MainActivity2 extends AppCompatActivity {
 
                 }
                 if (item.getItemId() == R.id.nav_info) {
-                    Intent startInfoIntent = new Intent(MainActivity2.this,InfoActivity.class);
+                    Intent startInfoIntent = new Intent(MainActivity2.this, InfoActivity.class);
                     startActivity(startInfoIntent);
                     return true;
                 }
-                if (item.getItemId() == R.id.nav_logout){
+                if (item.getItemId() == R.id.nav_logout) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
                     builder.setMessage("Do you want to exit ?");
@@ -130,8 +128,8 @@ public class MainActivity2 extends AppCompatActivity {
                     alertDialog.show();
 
                     FirebaseAuth.getInstance().signOut();
-                     return true;
-                    }
+                    return true;
+                }
 
 
                 return false;
@@ -155,7 +153,7 @@ public class MainActivity2 extends AppCompatActivity {
         slideritems.add(new Slideritem(R.drawable.grace13));
         slideritems.add(new Slideritem(R.drawable.grace14));
 
-        viewPager2.setAdapter(new SliderAdapter(slideritems,viewPager2));
+        viewPager2.setAdapter(new SliderAdapter(slideritems, viewPager2));
 
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
@@ -166,7 +164,7 @@ public class MainActivity2 extends AppCompatActivity {
         compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
-                float r =1 - Math.abs(position);
+                float r = 1 - Math.abs(position);
                 page.setScaleY(0.85f + r * 0.15f);
 
             }
@@ -178,26 +176,26 @@ public class MainActivity2 extends AppCompatActivity {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 sliderhandler.removeCallbacks(sliderRunnable);
-                sliderhandler.postDelayed(sliderRunnable,2000);
+                sliderhandler.postDelayed(sliderRunnable, 2000);
             }
         });
 
-        Drawable drawable = ResourcesCompat.getDrawable(getResources(),R.drawable.ic_splashs,null);
-        BitmapDrawable bitmapDrawable= (BitmapDrawable) drawable;
-         Bitmap largeIcon = bitmapDrawable.getBitmap();
+        Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_splashs, null);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+        Bitmap largeIcon = bitmapDrawable.getBitmap();
 
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Notification notification;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-           notification = new Notification.Builder(this)
+            notification = new Notification.Builder(this)
                     .setLargeIcon(largeIcon)
                     .setSmallIcon(R.drawable.ic_splashs)
                     .setContentText("Show your Gratitude by contribution and sharing about this home")
                     .setSubText("CHI Message")
                     .setChannelId(CHANNEL_ID)
                     .build();
-           nm.createNotificationChannel(new NotificationChannel(CHANNEL_ID,"New channel",NotificationManager.IMPORTANCE_HIGH));
-        }else{
+            nm.createNotificationChannel(new NotificationChannel(CHANNEL_ID, "New channel", NotificationManager.IMPORTANCE_HIGH));
+        } else {
             notification = new Notification.Builder(this)
                     .setLargeIcon(largeIcon)
                     .setSmallIcon(R.drawable.ic_splashs)
@@ -206,13 +204,14 @@ public class MainActivity2 extends AppCompatActivity {
                     .build();
 
         }
-        nm.notify(NOTIFICATION_ID,notification);
+        nm.notify(NOTIFICATION_ID, notification);
 
     }
-    private  Runnable sliderRunnable = new Runnable() {
+
+    private Runnable sliderRunnable = new Runnable() {
         @Override
         public void run() {
-            viewPager2.setCurrentItem(viewPager2.getCurrentItem()+1);
+            viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
         }
     };
 
@@ -221,24 +220,8 @@ public class MainActivity2 extends AppCompatActivity {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        if (item.getItemId() == R.id.action_Exit) {
-            finish();
-            return true;
-        }
+
         return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-
-
-
-
-
-
 
 }

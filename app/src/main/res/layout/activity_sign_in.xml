@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "#2196F3"
+    android:background="#2196F3"
     android:orientation="vertical"
     tools:context=".SignInActivity">
-
 
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins"
         android:text="Welcome to SIGN IN"
-        android:textColor="@color/white"
-        android:textSize="20sp"
         android:textAlignment="center"
-        android:layout_marginTop="30dp"/>
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="60dp"
-        android:layout_margin = "40dp"
-        android:layout_marginTop="100dp">
+        android:layout_margin="40dp"
+        android:layout_marginTop="100dp"
+        app:cardCornerRadius="60dp">
 
 
         <LinearLayout
@@ -50,6 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:background="@drawable/textgradient"
+                    android:fontFamily="@font/poppins"
                     android:hint="Enter you name"
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -62,6 +63,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
                 android:background="@drawable/textgradient"
+                android:fontFamily="@font/poppins"
                 android:text="sign IN" />
 
         </LinearLayout>
