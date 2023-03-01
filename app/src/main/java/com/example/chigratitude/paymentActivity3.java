@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class paymentActivity3 extends AppCompatActivity {
+public class paymentActivity3<NOTIFICATION_ID, notification> extends AppCompatActivity {
     private static Context context;
 
     EditText amount, note, name, upivirtualid;
@@ -189,4 +189,5 @@ public class paymentActivity3 extends AppCompatActivity {
 
 
     }
+
 }

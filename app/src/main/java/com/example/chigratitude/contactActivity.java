@@ -40,8 +40,8 @@ public class contactActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String mobileNumber = "9553248717";
                 Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_DIAL); // Action for what intent called for
-                intent.setData(Uri.parse("tel: " + mobileNumber)); // Data with intent respective action on intent
+                intent.setAction(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel: " + mobileNumber));
                 startActivity(intent);
 
             }
