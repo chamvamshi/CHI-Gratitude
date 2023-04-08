@@ -1,6 +1,7 @@
 package com.example.chigratitude;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.viewpager2.widget.ViewPager2;  //gallery ka fragment add nai kara meh mobile navigation meh
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -21,8 +22,10 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,6 +47,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
+
+
+
     ActionBarDrawerToggle actionBarDrawerToggle;
     DrawerLayout drawerLayout;
     NavigationView siderBarNav;
@@ -55,6 +61,8 @@ public class MainActivity2 extends AppCompatActivity {
 
     private static final String CHANNEL_ID = "My Channel";
     private static final int NOTIFICATION_ID = 100;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +138,15 @@ public class MainActivity2 extends AppCompatActivity {
                     FirebaseAuth.getInstance().signOut();
                     return true;
                 }
+                if (item.getItemId() == R.id.nav_gallery){
+                    Intent intentgallery = new Intent(MainActivity2.this, GalleryActivity.class);
+                    startActivity(intentgallery);
+                    return true;
+                }
+
+
+
+
 
 
                 return false;
