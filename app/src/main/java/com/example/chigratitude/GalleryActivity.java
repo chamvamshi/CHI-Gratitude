@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -21,7 +23,9 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,6 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.firebase.storage.UploadTask.TaskSnapshot;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -54,7 +59,7 @@ public class GalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        recyclerView= findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(GalleryActivity.this, 2));
         recyclerView.setHasFixedSize(true);
 
@@ -73,7 +78,7 @@ public class GalleryActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 clearAll();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                     image = new ImageModel();
+                    image = new ImageModel();
                     image.setImageurl(snapshot1.getValue(String.class));
                     imageModelArrayList.add(image);
                 }
@@ -93,25 +98,31 @@ public class GalleryActivity extends AppCompatActivity {
                 , new ActivityResultCallback<Uri>() {
                     @Override
                     public void onActivityResult(Uri result) {
-
                         image.setImageURI(result);
-
                         final StorageReference reference = storage.getReference()
                                 .child("image").child(String.valueOf(System.currentTimeMillis()));
-
                         reference.putFile(result).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                     @Override
-                                    public void onSuccess(Uri uri) {
-                                        database.push()
-                                                .setValue(result.toString()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                    @Override
-                                                    public void onSuccess(Void unused) {
-                                                        Toast.makeText(getApplicationContext(), "image uploaded", Toast.LENGTH_SHORT).show();
-                                                    }
-                                                });
+                                    public void onComplete(@NonNull Task<Uri> task) {
+                                        if (task.isSuccessful()) {
+                                            String url = task.getResult().toString();
+                                            database.push()
+                                                    .setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                Toast.makeText(GalleryActivity.this, "Successfully uploaded", Toast.LENGTH_SHORT).show();
+                                                            } else {
+                                                                Toast.makeText(GalleryActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                    });
+                                        } else {
+                                            task.getException().printStackTrace();
+                                        }
                                     }
                                 });
                             }
@@ -122,10 +133,6 @@ public class GalleryActivity extends AppCompatActivity {
         fabbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intentgallery = new Intent(Intent.ACTION_PICK);
-//                intentgallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                startActivityForResult(intentgallery,GALLERY_REQ_CODE);
-
                 launcher.launch("image/*");
             }
         });

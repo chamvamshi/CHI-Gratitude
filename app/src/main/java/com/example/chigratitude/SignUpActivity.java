@@ -44,50 +44,49 @@ public class SignUpActivity extends AppCompatActivity {
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String name = nameEt.getText().toString().trim();
-                String email = emailEt.getText().toString().trim();
-                String pass = passwordEt.getText().toString().trim();
-
-                if (name.isEmpty()) {
-                    nameEt.setError("name should not be empty");
-                    return;
-                }
-                if (email.isEmpty()) {
-                    emailEt.setError("email should not be empty");
-                    return;
-                }
-                if (pass.isEmpty()) {
-                    passwordEt.setError("password should not be empty");
-                    return;
-                }
-                User user = new User(name, email, pass);
-
-                ref.child(name).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(SignUpActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-                            Intent signupIntent  = new Intent(SignUpActivity.this ,MainActivity2.class);
-                            startActivity(signupIntent);
-                            finish();
-                        } else {
-                            Toast.makeText(SignUpActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-                        }
-                        finish();
-                    }
-                });
+                startActivity(new Intent(SignUpActivity.this, MainActivity2.class));
+//                String name = nameEt.getText().toString().trim();
+//                String email = emailEt.getText().toString().trim();
+//                String pass = passwordEt.getText().toString().trim();
+//
+//                if (name.isEmpty()) {
+//                    nameEt.setError("name should not be empty");
+//                    return;
+//                }
+//                if (email.isEmpty()) {
+//                    emailEt.setError("email should not be empty");
+//                    return;
+//                }
+//                if (pass.isEmpty()) {
+//                    passwordEt.setError("password should not be empty");
+//                    return;
+//                }
+//                User user = new User(name, email, pass);
+//
+//                ref.child(name).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast.makeText(SignUpActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+//                            Intent signupIntent = new Intent(SignUpActivity.this, MainActivity2.class);
+//                            startActivity(signupIntent);
+//                            finish();
+//                        } else {
+//                            Toast.makeText(SignUpActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+//                        }
+//                        finish();
+//                    }
+//                });
             }
         });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent openActivity = new Intent(SignUpActivity.this,SignInActivity.class);
+                Intent openActivity = new Intent(SignUpActivity.this, SignInActivity.class);
                 startActivity(openActivity);
             }
         });
-
 
 
     }

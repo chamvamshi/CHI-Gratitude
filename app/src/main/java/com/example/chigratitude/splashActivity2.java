@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class splashActivity2 extends AppCompatActivity {
 
     @Override
@@ -23,8 +25,8 @@ public class splashActivity2 extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-               //     Intent intent = new Intent(splashActivity2.this, MainActivity2.class);
-                 Intent intent = new Intent(splashActivity2.this, SignUpActivity.class);
+                    //     Intent intent = new Intent(splashActivity2.this, MainActivity2.class);
+                    Intent intent = new Intent(splashActivity2.this, SignUpActivity.class);
                     startActivity(intent);
                     finish();
                 }

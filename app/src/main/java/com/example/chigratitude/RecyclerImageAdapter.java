@@ -36,7 +36,6 @@ public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdap
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerImageAdapter.ViewHolder holder, int position) {
-        Log.d("abcd", "onBindViewHolder: imageView: " + imageModelArrayList);
         Glide.with(context)
                 .load(imageModelArrayList.get(position).getImageurl())
                 .into(holder.imageView);
@@ -44,7 +43,6 @@ public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdap
 
     @Override
     public int getItemCount() {
-        Log.d("problem", "getItemCount: imageView"+ imageModelArrayList.size());
         return imageModelArrayList.size();
     }
 
