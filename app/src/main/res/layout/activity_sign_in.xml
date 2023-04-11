@@ -23,10 +23,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:cardUseCompatPadding="true"
         android:layout_centerInParent="true"
-        app:cardCornerRadius="20dp">
+        android:layout_margin="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,14 +57,11 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signInbtn"
                 android:layout_width="wrap_content"
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:cornerRadius="10dp"
-                android:fontFamily="@font/poppins"
-                android:text="sign IN" />
+                android:layout_marginTop="10dp"
+                android:text="Sign In"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
 

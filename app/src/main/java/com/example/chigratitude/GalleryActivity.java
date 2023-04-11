@@ -62,10 +62,8 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(GalleryActivity.this, 2));
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new Space(0));
 
         imageModelArrayList = new ArrayList<>();
-        clearAll();
 
 
         FloatingActionButton fabbtn = findViewById(R.id.fab);
@@ -77,7 +75,7 @@ public class GalleryActivity extends AppCompatActivity {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                clearAll();
+                imageModelArrayList.clear();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     image = new ImageModel();
                     image.setImageurl(snapshot1.getValue(String.class));
@@ -156,9 +154,6 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
 
-    private void clearAll() {
-
-    }
 
 
 }
