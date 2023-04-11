@@ -62,6 +62,7 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(GalleryActivity.this, 2));
         recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new Space(0));
 
         imageModelArrayList = new ArrayList<>();
         clearAll();
