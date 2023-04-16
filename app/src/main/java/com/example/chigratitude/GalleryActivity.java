@@ -75,6 +75,7 @@ public class GalleryActivity extends AppCompatActivity {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                clearAll();
                 imageModelArrayList.clear();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     image = new ImageModel();
@@ -137,6 +138,19 @@ public class GalleryActivity extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    private void clearAll() {
+        if(imageModelArrayList != null){
+            imageModelArrayList.clear();
+
+            if(recyclerImageAdapter != null){
+                recyclerImageAdapter.notifyDataSetChanged();
+            }
+            imageModelArrayList = new ArrayList<>();
+        }
     }
 
     @Override

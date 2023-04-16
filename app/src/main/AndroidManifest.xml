@@ -19,9 +19,12 @@
         android:theme="@style/Theme.CHIGratitude"
         tools:targetApi="31">
         <activity
+            android:name=".ImageFullActivity"
+            android:exported="false" />
+        <activity
             android:name=".GalleryActivity"
             android:exported="false"
-            android:label="@string/gallery"/>
+            android:label="@string/gallery" />
         <activity
             android:name=".SignInActivity"
             android:exported="false" />

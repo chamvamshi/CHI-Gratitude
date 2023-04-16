@@ -1,6 +1,7 @@
 package com.example.chigratitude;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdap
         View view = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.single_image_layout, parent, false);
         return new ViewHolder(view);
+
     }
 
 
@@ -39,6 +41,19 @@ public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdap
         Glide.with(context)
                 .load(imageModelArrayList.get(position).getImageurl())
                 .into(holder.imageView);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,ImageFullActivity.class);
+                intent.putExtra("image@#",imageModelArrayList.get(position).getImageurl());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+
+
+
+            }
+        });
     }
 
     @Override
