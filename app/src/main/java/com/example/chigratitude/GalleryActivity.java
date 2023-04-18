@@ -94,7 +94,6 @@ public class GalleryActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(GalleryActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
             }
         });
 

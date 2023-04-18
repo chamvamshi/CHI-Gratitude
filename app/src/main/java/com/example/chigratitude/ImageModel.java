@@ -5,9 +5,8 @@ import android.net.Uri;
 public class ImageModel {
 
     String imageurl;
-     String document;
-
-    public ImageModel(){
+    String document;
+    public ImageModel() {
 
     }
 

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -24,12 +25,11 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdapter.ViewHolder> {
-//    NavigationView deleteoption;
+    //    NavigationView deleteoption;
     FirebaseStorage storage;
 
     private Context context;
     private ArrayList<ImageModel> imageModelArrayList;
-
 
 
     public RecyclerImageAdapter(Context context, ArrayList<ImageModel> imageModelArrayList) {
@@ -50,21 +50,21 @@ public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdap
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerImageAdapter.ViewHolder holder, int position) {
+        String imageUrl = imageModelArrayList.get(position).getImageurl();
+
         Glide.with(context)
-                .load(imageModelArrayList.get(position).getImageurl())
+                .load(imageUrl)
                 .into(holder.imageView);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.deleteBtn.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                 storage = FirebaseStorage.getInstance();
-                StorageReference reference = storage.getReferenceFromUrl(null).child("image");
+            public void onClick(View view) {
+                storage = FirebaseStorage.getInstance();
+                StorageReference reference = storage.getReferenceFromUrl(imageUrl);
                 reference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-
-                         
+                        Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -72,20 +72,15 @@ public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdap
                         Toast.makeText(context, "error", Toast.LENGTH_SHORT).show();
                     }
                 });
-
             }
-       });
-
+        });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,ImageFullActivity.class);
-                intent.putExtra("image@#",imageModelArrayList.get(position).getImageurl());
+                Intent intent = new Intent(context, ImageFullActivity.class);
+                intent.putExtra("image", imageModelArrayList.get(position).getImageurl());
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-
-
-
             }
         });
     }
@@ -97,17 +92,13 @@ public class RecyclerImageAdapter extends RecyclerView.Adapter<RecyclerImageAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageView;
-
-
+        ImageView imageView, deleteBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.image);
-
-
-
+            deleteBtn = itemView.findViewById(R.id.delete_btn);
         }
     }
 }
