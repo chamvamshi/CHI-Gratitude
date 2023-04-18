@@ -21,6 +21,14 @@
             android:layout_margin="5dp"
             android:scaleType="centerCrop" />
 
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/delete"
+            android:layout_width="139dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="65dp"
+            app:menu="@menu/delete_menu" />
+
+
     </androidx.cardview.widget.CardView>
 
 

@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageSwitcher;
@@ -27,6 +28,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,6 +53,7 @@ public class GalleryActivity extends AppCompatActivity {
     FirebaseStorage storage;
     ImageView imageView;
     ImageModel image;
+    NavigationView deleteoption;
 
 
     @Override
@@ -78,6 +81,7 @@ public class GalleryActivity extends AppCompatActivity {
                 clearAll();
                 imageModelArrayList.clear();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+
                     image = new ImageModel();
                     image.setImageurl(snapshot1.getValue(String.class));
                     imageModelArrayList.add(image);
@@ -102,18 +106,22 @@ public class GalleryActivity extends AppCompatActivity {
                         final StorageReference reference = storage.getReference()
                                 .child("image").child(String.valueOf(System.currentTimeMillis()));
                         reference.putFile(result).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                 taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Uri> task) {
                                         if (task.isSuccessful()) {
+                                          // String document = taskSnapshot.;
                                             String url = task.getResult().toString();
                                             database.push()
                                                     .setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if (task.isSuccessful()) {
+
                                                                 Toast.makeText(GalleryActivity.this, "Successfully uploaded", Toast.LENGTH_SHORT).show();
                                                             } else {
                                                                 Toast.makeText(GalleryActivity.this, "Failed", Toast.LENGTH_SHORT).show();
